@@ -67,10 +67,6 @@
             <?php }
             
             ?>
-
-
-
-
             <p class="t-center no-margin"><a href="<?php  echo get_post_type_archive_link('event'); ?>" class="btn btn--blue">View All Events</a></p>
 
         </div>
