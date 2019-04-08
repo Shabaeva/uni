@@ -2,6 +2,27 @@
 
 function uni_post_types(){
 
+    //Campus Post type
+register_post_type('campus', array(   
+'rewrite' => array(
+'slug' => 'campuses'
+),
+    'supports' => array('title', 'editor', 'excerpt'),
+    'has_archive' => true,
+    'public'=> true,
+    'labels'=> array(
+        'name'=>'Campuses',
+        'add_new_item'=>'Add New Campus',
+        'edit_item'=>'Edit Campus',
+        'all_items'=>'All Campuses',
+        'singular_name'=>'Campus'
+    ),
+    'menu_icon'=>'dashicons-location-alt'
+    
+    
+
+
+));
 	//Event Post type
 register_post_type('event', array(   
 'rewrite' => array(
