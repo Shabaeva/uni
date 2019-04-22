@@ -5,6 +5,7 @@ function add_theme_scripts(){
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime());
     wp_enqueue_script('script', get_theme_file_uri('/js/scripts-bundled.js'), NULL, microtime(), true);
+    wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyDNiihr6FG45yH5MB0jeZ7uMJh3acl6Ev8', NULL, '1.0', true);
    
     
 }
@@ -34,6 +35,11 @@ function special_nav_class ($classes, $item) {
 
 function uni_adjust_queries($query){
 	
+    if(!is_admin() && is_post_type_archive('campus') && $query->is_main_query()){
+		
+		$query->set('posts_per_page', -1);
+		
+	}
 	if(!is_admin() && is_post_type_archive('program') && $query->is_main_query()){
 		
 		$query->set('orderby', 'title');
@@ -102,6 +108,7 @@ $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
 //function universityMapKey($api) {
 //
 // $api['key'] = '';
+// return $api;
 //}
 //
 //add_filter('acf/fields/google_map/api', 'universityMapKey');

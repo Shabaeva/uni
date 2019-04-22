@@ -20,6 +20,7 @@ while(have_posts()){
 
     <?php
 	
+	
 	$relatedProfessors = new WP_Query(array(
                 'posts_per_page' => -1,
                 'post_type' => 'professor',                
@@ -55,9 +56,8 @@ while(have_posts()){
 			}
 		
 		wp_reset_postdata();
-	
-	
-		 $today = date('Ymd');
+    
+    	 $today = date('Ymd');
             $homepageEvents = new WP_Query(array(
                 'posts_per_page' => 2,
                 'post_type' => 'event',
@@ -93,7 +93,26 @@ while(have_posts()){
             }
            
 			}
-            ?>
+    
+    	wp_reset_postdata();
+    
+        $relatedCampuses = get_field('related_campus');
+    
+        if($relatedCampuses){
+            echo '<hr class="section-break">'; 
+            echo'<h2 class="headline headline-medium">' .  get_the_title() .  ' is Available At these Campuses:</h2>';
+        }
+    
+        echo '<ul class="min-list link-list">';
+    
+        foreach($relatedCampuses as $campus){
+            ?> <li><a href="<?php echo get_the_permalink($campus)?>"><?php echo get_the_title($campus)?></a></li>           
+            
+            
+            <?php }
+        echo '</ul>';
+	
+	            ?>
 
 </div>
 
