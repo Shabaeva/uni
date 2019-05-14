@@ -10618,9 +10618,20 @@ var Search = function () {
   }, {
     key: "getResults",
     value: function getResults() {
-      _jquery2.default.getJSON('http://localhost:3000/wp-json/wp/v2/posts?search=' + this.searchField.val(), function (posts) {
-        alert(posts[0].title.rendered);
-      });
+      _jquery2.default.getJSON('http://uni/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
+               var testArray = ['red','orange','yellow'];
+                this.resultsDiv.html(`
+                
+                <h2 class="search-overlay__section-title">General information</h2>
+                    <ul class="link-list min-list"> 
+                         
+                              
+                            ${posts.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+
+                    </ul> 
+                
+                `);
+            });
     }
   }, {
     key: "keyPressDispatcher",
