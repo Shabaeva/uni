@@ -1,5 +1,15 @@
 <?php
 
+require get_theme_file_path('/inc/search-route.php');
+
+function uni_custom_rest(){
+    register_rest_field('post', 'authorName', array(
+        'get_callback' => function(){ return get_the_author();}
+    ));
+}
+add_action('rest_api_init', 'uni_custom_rest');
+
+
 function add_theme_scripts(){
   
     wp_enqueue_style('custom-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');

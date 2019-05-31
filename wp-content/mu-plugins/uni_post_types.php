@@ -63,6 +63,7 @@ register_post_type('event', array(
 	
 		//Professor Post type
 	register_post_type('professor', array(   		
+    'show_in_rest' => true,
     'supports' => array('title', 'editor', 'thumbnail'),
     'public'=> true,
     'labels'=> array(
