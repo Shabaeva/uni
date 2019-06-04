@@ -47,7 +47,7 @@ register_post_type('event', array(
 	//Program Post type
 	register_post_type('program', array(   
 		'rewrite' => array( 'slug' => 'programs'),
-    'supports' => array('title', 'editor'),
+    'supports' => array('title'),
     'has_archive' => true,
     'public'=> true,
     'labels'=> array(
