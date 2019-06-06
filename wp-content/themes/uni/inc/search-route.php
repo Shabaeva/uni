@@ -16,7 +16,7 @@ function uniSearchResults($data){
         's' => sanitize_text_field($data['term'])
         
     ));
-    $eventDate = new DateTime(get_field('event_date'));
+       
     $results = array(
         'generalInfo' => array(),
         'professors' => array(),
@@ -25,7 +25,7 @@ function uniSearchResults($data){
         'campuses' => array()
         
     );
-    
+     $eventDate = new DateTime(get_field('event_date'));
     while($mainQuery->have_posts()){
         $mainQuery->the_post();
         if(get_post_type() == 'post' || get_post_type() == 'page') {
@@ -66,6 +66,7 @@ function uniSearchResults($data){
         }
         
          if(get_post_type() == 'event') {
+         
            $description = null;
              if(has_excerpt()){
               $description = get_the_excerpt();
@@ -77,7 +78,7 @@ function uniSearchResults($data){
             'title' => get_the_title(),
             'permalink' => get_the_permalink(),
             'month' => $eventDate->format('M'),
-            'day' =>  $eventDate->format('j'),
+            'day' =>  $eventDate->format('d'),
             'description' => $description
         ));            
         }

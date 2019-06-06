@@ -7,6 +7,8 @@ register_post_type('campus', array(
 'rewrite' => array(
 'slug' => 'campuses'
 ),
+    'capability_type' => 'campus',
+    'map_meta_cap' => true,
     'supports' => array('title', 'editor', 'excerpt'),
     'has_archive' => true,
     'public'=> true,
@@ -28,6 +30,8 @@ register_post_type('event', array(
 'rewrite' => array(
 'slug' => 'events'
 ),
+    'capability_type' => 'event',
+    'map_meta_cap' => true,
     'supports' => array('title', 'editor', 'excerpt'),
     'has_archive' => true,
     'public'=> true,
@@ -67,7 +71,7 @@ register_post_type('event', array(
     'supports' => array('title', 'editor', 'thumbnail'),
     'public'=> true,
     'labels'=> array(
-        'name'=>'Professor',
+        'name'=>'Professors',
         'add_new_item'=>'Add New Professor',
         'edit_item'=>'Edit Professor',
         'all_items'=>'All Professors',
