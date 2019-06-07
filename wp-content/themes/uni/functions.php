@@ -127,3 +127,21 @@ $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
 //}
 //
 //add_filter('acf/fields/google_map/api', 'universityMapKey');
+
+//Reditect subscriber accounts out of admin and onto homepage
+add_action('admin_init', redirectSubs);
+function redirectSubs(){
+    $currentUser = wp_get_current_user();
+    if(count($currentUser->roles) == 1 AND $currentUser->roles[0] == 'subscriber'){
+        wp_redirect(site_url('/'));
+        exit;
+    }
+}
+
+add_action('wp_loaded', noSubsAdminBar);
+function noSubsAdminBar(){
+    $currentUser = wp_get_current_user();
+    if(count($currentUser->roles) == 1 AND $currentUser->roles[0] == 'subscriber'){
+       show_admin_bar(false);
+    }
+}
