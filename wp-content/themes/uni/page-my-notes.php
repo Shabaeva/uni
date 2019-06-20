@@ -17,11 +17,12 @@ while(have_posts()){
 
    <ul class="min-list link-list" id="my-notes">
        <?php 
-          
+
+    
             $userNotes = new WP_Query(array(
-                'post_type' => 'note',
-                'posts_per_page' => -1,
-                'author' => get_current_user_id()
+            'post_type' => 'note',
+            'posts_per_page' => -1,
+            //'author' => get_current_user_id()
             ));
   
             while($userNotes->have_posts()){
@@ -42,6 +43,6 @@ while(have_posts()){
  </div>
 
 <?php }
-
+ 
 get_footer();
 ?>

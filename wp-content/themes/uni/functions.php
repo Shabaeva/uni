@@ -20,7 +20,8 @@ function add_theme_scripts(){
           //            array('jquery'), microtime(), true);
     wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyDNiihr6FG45yH5MB0jeZ7uMJh3acl6Ev8', NULL, '1.0', true);
      wp_localize_script('script', 'uniData', array(
-        'root_url' => get_site_url()
+        'root_url' => get_site_url(),
+		'nonce' => wp_create_nonce('wp_rest')
     ));
     
 }

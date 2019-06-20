@@ -63,7 +63,8 @@ register_post_type('event', array(
 ));
 	
 		//Professor Post type
-	register_post_type('professor', array(   		
+	register_post_type('professor', array(
+		
     'show_in_rest' => true,
     'supports' => array('title', 'editor', 'thumbnail'),
     'public'=> true,
@@ -79,7 +80,9 @@ register_post_type('event', array(
 ));
     
     //Notes Post type
-	register_post_type('note', array(   		
+	register_post_type('note', array(  
+	'capability_type' => 'note',
+    'map_meta_cap' => true,
     'show_in_rest' => true,
     'supports' => array('title', 'editor'),
     'public'=> false,
