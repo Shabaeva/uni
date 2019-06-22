@@ -84,7 +84,7 @@ register_post_type('event', array(
 	'capability_type' => 'note',
     'map_meta_cap' => true,
     'show_in_rest' => true,
-    'supports' => array('title', 'editor'),
+    'supports' => array('title', 'editor', 'author'),
     'public'=> false,
     'show_ui' => true,
     'labels'=> array(
